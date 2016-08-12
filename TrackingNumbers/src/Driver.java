@@ -12,30 +12,45 @@ public class Driver {
 		FileReader in = new FileReader("C:/input.txt");
 
 		BufferedReader br = new BufferedReader(in);
+		
+		String value = br.readLine();
+		
+		System.out.println(value);
+		
+//		value = br.readLine();
 
-		while (br.readLine() != null) {
-
-			String[] values = br.readLine().split("\\s*");
+		while (value != null) {
 			
-			for(String s:values){
-				System.out.println(s);
-			}
+			value = br.readLine();
+			
+			if(value.equals("0")){
+				System.out.println(nt);
+				nt = new Table();
+				value = br.readLine();
+				System.out.println(value);
+			}	
+			else{
+				
+				String[] values = value.split(" ");
 
-			String startTrackNumber = String.valueOf(values[0]);
+				String startTrackNumber = String.valueOf(values[0]);
 
-			String endTrackNumber = String.valueOf(values[1]);
+				String endTrackNumber = String.valueOf(values[1]);
 
-			String statusCode = String.valueOf(values[2]);
+				String statusCode = String.valueOf(values[2]);
 
-			String transferCode = String.valueOf(values[3]);
+				String transferCode = String.valueOf(values[3]);
 
-			int start = Integer.parseInt(startTrackNumber);
+				int start = Integer.parseInt(startTrackNumber);
 
-			int end = Integer.parseInt(endTrackNumber);
+				int end = Integer.parseInt(endTrackNumber);
 
-			int transfer = Integer.parseInt(transferCode);
+				int transfer = Integer.parseInt(transferCode);
 
-			nt.createRecord(start, end, statusCode, transfer);
+				nt.createRecord(start, end, statusCode, transfer);
+
+//				value = br.readLine();		
+			}		
 
 		}
 

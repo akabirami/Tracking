@@ -17,7 +17,7 @@ public class Range {
 	}
 	
 	public boolean isEndOverlap(Range r){
-		return this.start < r.getStart() && this.end > r.getEnd();
+		return this.start < r.getStart() && this.end >= r.getEnd();
 	}
 	
 	@Override

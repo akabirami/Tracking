@@ -3,14 +3,27 @@ import java.util.*;
 public class Table {
 	String Elements = "START END STATUS TRANSFER";
 
-	Record[] recordList;
+	ArrayList<Record> recordList;
 
 	public Table() {
-		
+		recordList = new ArrayList<>();
 	}
 
 	public void createRecord(int start, int end, String status, int transfer) {
+		Record r = new Record(start, end, status, transfer);
+				
+		if(recordList.isEmpty())
+			recordList.add(r);
+		else
+			recordList = r.resolveConflicts(recordList);
+	}
 
+	public String toString() {
+		String result = "";
+		for (Record r : recordList) {
+			result += r+"\n";
+		}
+		return result;
 	}
 
 }
