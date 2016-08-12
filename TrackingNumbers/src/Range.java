@@ -9,7 +9,15 @@ public class Range {
 	}
 	
 	public boolean isSuperSet(Range r){
-		return true;
+		return this.start > r.getStart() && this.end < r.getEnd();
+	}
+	
+	public boolean isStartOverlap(Range r){
+		return this.start > r.getStart() && this.end < r.getEnd();
+	}
+	
+	public boolean isEndOverlap(Range r){
+		return this.start < r.getStart() && this.end > r.getEnd();
 	}
 	
 	@Override
